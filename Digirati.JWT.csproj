@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Paweł Kaczyński</Authors>
+    <Company>Digirati Ltd.</Company>
+    <Description>Simple wrapper for generation of JWT tokens.</Description>
+    <Copyright>All rights reserved</Copyright>
+    <Configurations>Debug;Release;ReleaseWithDeps</Configurations>
+    <Version>1.0.1.0</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='ReleaseWithDeps'">
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.5.0" />
+  </ItemGroup>
+
+</Project>
