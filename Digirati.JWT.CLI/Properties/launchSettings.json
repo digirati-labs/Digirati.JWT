@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Digirati.JWT.CLI": {
+      "commandName": "Project",
+      "commandLineArgs": "cert -s pawel -t 8e4be666eec44fc972b0a35bed0de94fafa8c982 -e 365d -i http://localhost:8080/ -c groups:admin --saveas taxdev"
+    }
+  }
+}

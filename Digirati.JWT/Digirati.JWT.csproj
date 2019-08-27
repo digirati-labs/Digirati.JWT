@@ -7,7 +7,7 @@
     <Description>Simple wrapper for generation of JWT tokens.</Description>
     <Copyright>All rights reserved</Copyright>
     <Configurations>Debug;Release;ReleaseWithDeps</Configurations>
-    <Version>1.0.1.0</Version>
+    <Version>1.1.2</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='ReleaseWithDeps'">
@@ -15,7 +15,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="BundledPackages\**" />
+    <Compile Remove="Digirati.JWT.CLI\**" />
+    <EmbeddedResource Remove="BundledPackages\**" />
+    <EmbeddedResource Remove="Digirati.JWT.CLI\**" />
+    <None Remove="BundledPackages\**" />
+    <None Remove="Digirati.JWT.CLI\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove=".gitignore" />
+    <None Remove="NuGet.config" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.5.0" />
+    <PackageReference Include="System.Security.Cryptography.Cng" Version="4.*"/>
   </ItemGroup>
 
 </Project>
