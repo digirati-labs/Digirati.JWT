@@ -7,26 +7,24 @@
     <Description>Simple wrapper for generation of JWT tokens.</Description>
     <Copyright>All rights reserved</Copyright>
     <Configurations>Debug;Release;ReleaseWithDeps</Configurations>
-    <Version>1.1.2</Version>
+    <Version>2.0.1</Version>
+  </PropertyGroup>
+
+ <PropertyGroup>
+    <Platform>Any CPU</Platform>
+    <LangVersion>7.3</LangVersion>
+    <PackageOutputPath>..\packages</PackageOutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+  
+ <PropertyGroup Condition="'$(Configuration)'!='Debug'">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='ReleaseWithDeps'">
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="BundledPackages\**" />
-    <Compile Remove="Digirati.JWT.CLI\**" />
-    <EmbeddedResource Remove="BundledPackages\**" />
-    <EmbeddedResource Remove="Digirati.JWT.CLI\**" />
-    <None Remove="BundledPackages\**" />
-    <None Remove="Digirati.JWT.CLI\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove=".gitignore" />
-    <None Remove="NuGet.config" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.5.0" />
