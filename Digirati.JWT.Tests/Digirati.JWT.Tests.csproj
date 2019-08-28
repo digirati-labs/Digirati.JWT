@@ -9,6 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="thumbprints.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="thumbprints.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentAssertions">
       <Version>5.6.0</Version>
     </PackageReference>
