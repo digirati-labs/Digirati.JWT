@@ -5,6 +5,10 @@ runBuild {
         sh('dotnet clean')
     }
 
+    stage ('NuGet auth') {
+        sh('dotnet nuget add source http://nexus:8081/repository/nuget-hosted --store-password-in-clear-text --username $NEXUS_AUTOMATION_USERNAME --password $NEXUS_AUTOMATION_PASSWORD')
+    }
+
     stage ('test') {
         sh('dotnet test')
         sh('rm -rf ./artifacts')
