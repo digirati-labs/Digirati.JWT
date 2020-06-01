@@ -71,7 +71,18 @@ namespace Digirati.JWT
                 case ECDsa csp:
                     return csp.SignData(data, HashAlgorithmName.SHA512);
                 case RSA rsa:
-                    return rsa.SignData(data, HashAlgorithmName.SHA512, RSASignaturePadding.Pss);
+                    try
+                    {
+                        // Try using provided RSA implementation. Can be RSAOpenSsl for example.
+                        return rsa.SignData(data, HashAlgorithmName.SHA512, RSASignaturePadding.Pss);
+                    }
+                    catch (NotSupportedException)
+                    {
+                        // It is perfectly possible that the unknown RSA implementation does not work like this
+                        // We have to abort and just assume this is not a supported algorithm.
+                        // fall through
+                        goto default;
+                    }
                 default:
                     throw new NotSupportedException($"Not support as of yet for '{asymmetricAlgorithm.GetType().FullName}'");
             }
