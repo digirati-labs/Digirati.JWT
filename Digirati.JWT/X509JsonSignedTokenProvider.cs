@@ -6,7 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Digirati.JWT
 {
-    public abstract class X509JsonSignedTokenProvider : JsonSignedTokenProvider, IDisposable
+    public abstract class X509JsonSignedTokenProvider : JsonSignedTokenProvider, ISignedTokenProvider
     {
         protected readonly X509Certificate2 Certificate;
 
